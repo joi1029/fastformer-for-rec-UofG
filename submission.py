@@ -51,7 +51,22 @@ def prediction(model, args, device, category_dict, subcategory_dict):
         )
 
         f = open('prediction.txt', 'w', encoding='utf-8')
-        for cnt, (impids, log_vecs, log_mask, candidate_vec) in enumerate(dataloader.generate_batch()):
+
+        def reldiff(user, user_history, candidate_news):
+            rd = []
+            for n in candidate_news:
+                cn = n * user_history
+                l2 = np.linalg.norm(cn, axis=1)
+                l2 = np.stack([norm if norm != 0 else 1 for norm in l2])
+                rd.append(user - (cn.T / l2).T)
+                #rd.append(user - cn)
+                #l2 = np.linalg.norm(cn)
+                #rd.append(user - (cn / l2))
+            return np.mean(rd, axis=1)
+
+
+        # for cnt, (impids, log_vecs, log_mask, candidate_vec) in enumerate(dataloader.generate_batch()):
+        for cnt, (impids, log_vecs, log_mask, candidate_vec, user_news_history) in enumerate(dataloader.generate_batch()):  # ADDED
 
             if args.enable_gpu:
                 log_vecs = log_vecs.cuda(device=device, non_blocking=True)
@@ -60,18 +75,33 @@ def prediction(model, args, device, category_dict, subcategory_dict):
             user_vecs = model.user_encoder(
                 log_vecs, log_mask, user_log_mask=True).to(torch.device("cpu")).detach().numpy()
 
-            for id, user_vec, news_vec in zip(
-                    impids, user_vecs, candidate_vec):
+            # for id, user_vec, news_vec in zip(
+            #         impids, user_vecs, candidate_vec):
+            for id, user_vec, news_vec, hist_vec in zip(  # ADDED
+                    impids, user_vecs, candidate_vec, user_news_history):  # ADDED
+                
+#                 score = np.dot(
+#                     news_vec, user_vec
+#                 )
+                
+#                 print(news_vec.shape, user_vec.shape, hist_vec.numpy(force=True).shape)  # ADDED
+                 #      (21, 256)       (256,)          torch.Size([100, 256])
+#                 score_reldiff = score  # ADDED
+                n = min(10, len(hist_vec))
+                #n = len(hist_vec)
+               # score_reldiff = [np.dot(new, usr) for new, usr in zip(
+                #    news_vec,
+                 #   reldiff(user_vec, hist_vec[:n], news_vec)
+                #)]
+                score_reldiff = np.dot(reldiff(user_vec, hist_vec[:n], news_vec), user_vec)
 
-                score = np.dot(
-                    news_vec, user_vec
-                )
-                pred_rank = (np.argsort(np.argsort(score)[::-1]) + 1).tolist()
+                # pred_rank = (np.argsort(np.argsort(score)[::-1]) + 1).tolist()
+                pred_rank = (np.argsort(np.argsort(score_reldiff)[::-1]) + 1).tolist()  # ADDED
                 f.write(str(id) + ' ' + '[' + ','.join([str(x) for x in pred_rank]) + ']' + '\n')
 
         f.close()
 
-    zip_file = zipfile.ZipFile('prediction.zip', 'w')
+    zip_file = zipfile.ZipFile(f'ff-base-v5-{n}.zip', 'w', zipfile.ZIP_DEFLATED)
     zip_file.write('prediction.txt')
     zip_file.close()
     os.remove('prediction.txt')
