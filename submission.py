@@ -29,7 +29,7 @@ def generate_submission(args):
     model.load_state_dict(ckpt['model_state_dict'])
 
     with open('time.txt', 'a') as file:
-        for i in [5, 10, 15, 20, 'all']:
+        for i in [5, 10, 15, 20, 24, 'all']:
             start = perf_counter()
             prediction(model, args, device, ckpt['category_dict'], ckpt['subcategory_dict'], n=i)
             end = perf_counter()
@@ -39,13 +39,11 @@ def generate_submission(args):
 def reldiff(user, user_history, candidate_news):
     rd = []
     for n in candidate_news:
-        cn = n * user_history
-        l2 = np.linalg.norm(cn, axis=1)
-        l2 = np.stack([norm if norm != 0 else 1 for norm in l2])
-        rd.append(user - (cn.T / l2).T)
-        #rd.append(user - cn)
-        #l2 = np.linalg.norm(cn)
-        #rd.append(user - (cn / l2))
+        # cn = n * user_history
+        # l2 = np.linalg.norm(cn, axis=1)
+        # l2 = np.stack([norm if norm != 0 else 1 for norm in l2])
+        # rd.append(user - (cn.T / l2).T)
+        rd.append(user + cn)
     return np.mean(rd, axis=1)
 
 
