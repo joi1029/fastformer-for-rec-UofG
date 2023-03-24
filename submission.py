@@ -43,7 +43,7 @@ def reldiff(user, user_history, candidate_news):
         # l2 = np.linalg.norm(cn, axis=1)
         # l2 = np.stack([norm if norm != 0 else 1 for norm in l2])
         # rd.append(user - (cn.T / l2).T)
-        rd.append(user + cn)
+        rd.append(user + n)
     return np.mean(rd, axis=1)
 
 
