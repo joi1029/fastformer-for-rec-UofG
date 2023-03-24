@@ -39,11 +39,11 @@ def generate_submission(args):
 def reldiff(user, user_history, candidate_news):
     rd = []
     for n in candidate_news:
-        # cn = n * user_history
+        cn = n * user_history
         # l2 = np.linalg.norm(cn, axis=1)
         # l2 = np.stack([norm if norm != 0 else 1 for norm in l2])
         # rd.append(user - (cn.T / l2).T)
-        rd.append(user + n)
+        rd.append(user + cn)
     return np.mean(rd, axis=1)
 
 
