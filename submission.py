@@ -107,9 +107,10 @@ def prediction(model, args, device, category_dict, subcategory_dict, n):
 
                 # pred_rank = (np.argsort(np.argsort(score)[::-1]) + 1).tolist()
                 pred_rank = (np.argsort(np.argsort(score_reldiff)[::-1]) + 1).tolist()  # ADDED
-                f.write(str(id) + ' ' + '[' + ','.join([str(x) for x in pred_rank]) + ']' + '\n')
+                # f.write(str(id) + ' ' + '[' + ','.join([str(x) for x in pred_rank]) + ']' + '\n')
+
                 if id in [11, 911]:
-                    print(f"\nu{id}", pred_rank)
+                    print(f"\nu{id}", pred_rank, "\n")
                 if id == 911:
                     return None
 
