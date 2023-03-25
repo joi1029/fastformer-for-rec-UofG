@@ -29,7 +29,8 @@ def generate_submission(args):
     model.load_state_dict(ckpt['model_state_dict'])
 
     with open('time.txt', 'a') as file:
-        for i in [5, 10, 15, 20, 24, 'all']:
+        # for i in [5, 10, 15, 20, 24, 'all']:
+        for i in [5, 10, 15]:
             start = perf_counter()
             prediction(model, args, device, ckpt['category_dict'], ckpt['subcategory_dict'], n=i)
             end = perf_counter()
@@ -40,10 +41,9 @@ def reldiff(user, user_history, candidate_news):
     rd = []
     for n in candidate_news:
         cn = n * user_history
-        # l2 = np.linalg.norm(cn, axis=1)
-        # l2 = np.stack([norm if norm != 0 else 1 for norm in l2])
-        # rd.append(user - (cn.T / l2).T)
-        rd.append(user + cn)
+        l2 = np.linalg.norm(cn, axis=1)
+        l2 = np.stack([norm if norm != 0 else 1 for norm in l2])
+        rd.append(user - (cn.T / l2).T)
     return np.mean(rd, axis=1)
 
 
@@ -108,10 +108,12 @@ def prediction(model, args, device, category_dict, subcategory_dict, n):
                 # pred_rank = (np.argsort(np.argsort(score)[::-1]) + 1).tolist()
                 pred_rank = (np.argsort(np.argsort(score_reldiff)[::-1]) + 1).tolist()  # ADDED
                 f.write(str(id) + ' ' + '[' + ','.join([str(x) for x in pred_rank]) + ']' + '\n')
+                if id in [11, 911]:
+                    print(f"\nu{id}", pred_rank)
 
         f.close()
 
-    zip_file = zipfile.ZipFile(f'ff-base-v5.1-{n}.zip', 'w', zipfile.ZIP_DEFLATED)
+    zip_file = zipfile.ZipFile(f'ff-base-v5.0-{n}.zip', 'w', zipfile.ZIP_DEFLATED)
     zip_file.write('prediction.txt')
     zip_file.close()
     os.remove('prediction.txt')
