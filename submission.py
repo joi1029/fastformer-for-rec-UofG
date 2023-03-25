@@ -34,7 +34,7 @@ def generate_submission(args):
             start = perf_counter()
             prediction(model, args, device, ckpt['category_dict'], ckpt['subcategory_dict'], n=i)
             end = perf_counter()
-            file.write(f"For User History of size {i} took {timedelta(end-start)} minutes.\n")
+            # file.write(f"For User History of size {i} took {timedelta(end-start)} minutes.\n")
 
 
 def reldiff(user, user_history, candidate_news):
@@ -69,7 +69,7 @@ def prediction(model, args, device, category_dict, subcategory_dict, n):
             enable_gpu=args.enable_gpu,
         )
 
-        f = open('prediction.txt', 'w', encoding='utf-8')
+        # f = open('prediction.txt', 'w', encoding='utf-8')
 
 
         # for cnt, (impids, log_vecs, log_mask, candidate_vec) in enumerate(dataloader.generate_batch()):
@@ -110,13 +110,15 @@ def prediction(model, args, device, category_dict, subcategory_dict, n):
                 f.write(str(id) + ' ' + '[' + ','.join([str(x) for x in pred_rank]) + ']' + '\n')
                 if id in [11, 911]:
                     print(f"\nu{id}", pred_rank)
+                if id == 911:
+                    return None
 
-        f.close()
+        # f.close()
 
-    zip_file = zipfile.ZipFile(f'ff-base-v5.0-{n}.zip', 'w', zipfile.ZIP_DEFLATED)
-    zip_file.write('prediction.txt')
-    zip_file.close()
-    os.remove('prediction.txt')
+    # zip_file = zipfile.ZipFile(f'ff-base-v5.0-{n}.zip', 'w', zipfile.ZIP_DEFLATED)
+    # zip_file.write('prediction.txt')
+    # zip_file.close()
+    # os.remove('prediction.txt')
 
 if __name__ == "__main__":
     from parameters import parse_args
