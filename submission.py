@@ -90,7 +90,7 @@ def prediction(model, args, device, category_dict, subcategory_dict, n):
                 # )
                 # pred_rank = (np.argsort(np.argsort(score)[::-1]) + 1).tolist()
                 
-                # obtain the reldiff size
+                # obtain the reldiff size of user_news_history
                 if n != 'all':
                     size = min(n, len(hist_vec))
                 else:
@@ -101,13 +101,10 @@ def prediction(model, args, device, category_dict, subcategory_dict, n):
                    reldiff(user_vec, hist_vec[:size], news_vec)
                 )]
 
-                pred_rank = (np.argsort(np.argsort(score_reldiff)[::-1]) + 1).tolist()  # change variable name to re
+                pred_rank = (np.argsort(np.argsort(score_reldiff)[::-1]) + 1).tolist()
+                f.write(str(id) + ' ' + '[' + ','.join([str(x) for x in pred_rank]) + ']' + '\n')
 
-                if id in [11, 911]:
-                    print(f"\nu{id}", pred_rank, "\n")
-                if id == 911:
-                    return None
-
+         
         f.close()
 
     zip_file = zipfile.ZipFile(f'ff-prediction-{n}.zip', 'w', zipfile.ZIP_DEFLATED)
