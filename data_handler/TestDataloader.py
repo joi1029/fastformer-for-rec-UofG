@@ -228,8 +228,7 @@ class DataLoaderLeader(DataLoaderTest):
         impids = []
         for file in self.test_files:
             print(f'predicting: {file}')
-            # for line in open(file, 'r'):
-            for line in tqdm(open(file, 'r')):  # ADDED
+            for line in tqdm(open(file, 'r')):  # ADDED tqdm
                 impid, uid, history, impressions = line.strip().split('\t')
                 click_docs = [i for i in history.split()]
 
@@ -241,17 +240,16 @@ class DataLoaderLeader(DataLoaderTest):
                 sess_candidate = self.trans_to_nindex(sess)
 
                 news_feature = self.news_scoring[sess_candidate]
-                # commented to use all history including zeros
+
+                # Sanitise user history to only contain non zero indeces of news
                 click_docs = np.array(click_docs)[np.nonzero(click_docs)]
                 if click_docs.shape[0] == 0: click_docs = [0]
 
+                # Score news in the user history and add them to batch
                 news_history = [self.news_scoring[news] for news in click_docs]  # ADDED
-                user_news_history.append(news_history)  # ADDED
+                user_news_history_batch.append(news_history)  # ADDED
 
                 impids.append(impid)
-#                 print(np.array(user_feature).shape, np.array(news_feature).shape, np.array(news_history).shape)              
-#                 user_feature, _ = self.pad_to_fix_len(self.trans_to_nindex(user_feature),
-#                                                  self.args.user_log_length)
                 user_feature_batch.append(user_feature)
                 log_mask_batch.append(log_mask)
                 news_feature_batch.append(news_feature)
@@ -259,19 +257,12 @@ class DataLoaderLeader(DataLoaderTest):
                 if len(impids)==self.args.batch_size:
                     user_feature_batch = torch.FloatTensor(user_feature_batch).cuda()
                     log_mask_batch = torch.FloatTensor(log_mask_batch).cuda()
-#                     print(np.array(user_news_history).shape)
-                    # user_news_history_batch = torch.FloatTensor(user_news_history).cuda()  # ADDED
-                    user_news_history_batch = user_news_history
-                    # yield impids, user_feature_batch, log_mask_batch, news_feature_batch
-                    yield impids, user_feature_batch, log_mask_batch, news_feature_batch, user_news_history_batch  # ADDED
+                    yield impids, user_feature_batch, log_mask_batch, news_feature_batch, user_news_history_batch  # ADDED user history yielding
 
-                    # impids, user_feature_batch, log_mask_batch, news_feature_batch = [], [], [], []
-                    impids, user_feature_batch, log_mask_batch, news_feature_batch, user_news_history = [], [], [], [], []  # ADDED
+                    impids, user_feature_batch, log_mask_batch, news_feature_batch, user_news_history = [], [], [], [], []  # ADDED user hsitory
 
         if len(impids)>0:
             user_feature_batch = torch.FloatTensor(user_feature_batch).cuda()
             log_mask_batch = torch.FloatTensor(log_mask_batch).cuda()
-            # user_news_history_batch = torch.FloatTensor(user_news_history).cuda()  # ADDED
             user_news_history_batch = user_news_history
-            # yield impids, user_feature_batch, log_mask_batch, news_feature_batch
             yield impids, user_feature_batch, log_mask_batch, news_feature_batch, user_news_history_batch  # ADDED

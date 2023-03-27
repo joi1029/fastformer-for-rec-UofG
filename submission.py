@@ -28,13 +28,13 @@ def generate_submission(args):
     ckpt = torch.load(args.load_ckpt_name)
     model.load_state_dict(ckpt['model_state_dict'])
 
+    # run predictions for all user history sizes and save timelog into file
     with open('time.txt', 'a') as file:
-        # for i in [5, 10, 15, 20, 24, 'all']:
-        for i in [5, 10, 15]:
+        for i in [5, 10, 15, 20, 24, 'all']:
             start = perf_counter()
             prediction(model, args, device, ckpt['category_dict'], ckpt['subcategory_dict'], n=i)
             end = perf_counter()
-            # file.write(f"For User History of size {i} took {timedelta(end-start)} minutes.\n")
+            file.write(f"For User History of size {i} took {timedelta(end-start)} minutes.\n")
 
 
 def reldiff(user, user_history, candidate_news):
@@ -69,10 +69,8 @@ def prediction(model, args, device, category_dict, subcategory_dict, n):
             enable_gpu=args.enable_gpu,
         )
 
-        # f = open('prediction.txt', 'w', encoding='utf-8')
+        f = open('prediction.txt', 'w', encoding='utf-8')
 
-
-        # for cnt, (impids, log_vecs, log_mask, candidate_vec) in enumerate(dataloader.generate_batch()):
         for cnt, (impids, log_vecs, log_mask, candidate_vec, user_news_history) in enumerate(dataloader.generate_batch()):  # ADDED
 
             if args.enable_gpu:
@@ -82,18 +80,17 @@ def prediction(model, args, device, category_dict, subcategory_dict, n):
             user_vecs = model.user_encoder(
                 log_vecs, log_mask, user_log_mask=True).to(torch.device("cpu")).detach().numpy()
 
-            # for id, user_vec, news_vec in zip(
-            #         impids, user_vecs, candidate_vec):
-            for id, user_vec, news_vec, hist_vec in zip(  # ADDED
-                    impids, user_vecs, candidate_vec, user_news_history):  # ADDED
+            # include user_news_history
+            for id, user_vec, news_vec, hist_vec in zip(
+                    impids, user_vecs, candidate_vec, user_news_history):
                 
-#                 score = np.dot(
-#                     news_vec, user_vec
-#                 )
+                # replace original dot click predictor with RelDiff version
+                # score = np.dot(
+                #     news_vec, user_vec
+                # )
+                # pred_rank = (np.argsort(np.argsort(score)[::-1]) + 1).tolist()
                 
-#                 print(news_vec.shape, user_vec.shape, hist_vec.numpy(force=True).shape)  # ADDED
-                 #      (21, 256)       (256,)          torch.Size([100, 256])
-#                 score_reldiff = score  # ADDED
+                # obtain the reldiff size
                 if n != 'all':
                     size = min(n, len(hist_vec))
                 else:
@@ -103,23 +100,20 @@ def prediction(model, args, device, category_dict, subcategory_dict, n):
                    news_vec,
                    reldiff(user_vec, hist_vec[:size], news_vec)
                 )]
-                # score_reldiff = np.dot(reldiff(user_vec, hist_vec[:size], news_vec), user_vec)
 
-                # pred_rank = (np.argsort(np.argsort(score)[::-1]) + 1).tolist()
-                pred_rank = (np.argsort(np.argsort(score_reldiff)[::-1]) + 1).tolist()  # ADDED
-                # f.write(str(id) + ' ' + '[' + ','.join([str(x) for x in pred_rank]) + ']' + '\n')
+                pred_rank = (np.argsort(np.argsort(score_reldiff)[::-1]) + 1).tolist()  # change variable name to re
 
                 if id in [11, 911]:
                     print(f"\nu{id}", pred_rank, "\n")
                 if id == 911:
                     return None
 
-        # f.close()
+        f.close()
 
-    # zip_file = zipfile.ZipFile(f'ff-base-v5.0-{n}.zip', 'w', zipfile.ZIP_DEFLATED)
-    # zip_file.write('prediction.txt')
-    # zip_file.close()
-    # os.remove('prediction.txt')
+    zip_file = zipfile.ZipFile(f'ff-prediction-{n}.zip', 'w', zipfile.ZIP_DEFLATED)
+    zip_file.write('prediction.txt')
+    zip_file.close()
+    os.remove('prediction.txt')
 
 if __name__ == "__main__":
     from parameters import parse_args
