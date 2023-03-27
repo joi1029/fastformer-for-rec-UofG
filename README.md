@@ -1,4 +1,8 @@
 # Fastformer for recommandation (Unofficial)
+
+Edditied under the licence provided by the original creator for research purpouses.
+
+
 This example walks through the training and prediction of unilm-fastformer on MIND dataset. <br> 
 Fastformer model refers to [fastformer](https://github.com/wuch15/Fastformer) <br>
 PLM structure refers to [PLM4Rec](https://github.com/wuch15/PLM4NewsRec) and [speedy_mind](https://github.com/microsoft/SpeedyRec/tree/main/speedy_mind)<br>
