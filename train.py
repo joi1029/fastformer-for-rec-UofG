@@ -17,6 +17,8 @@ from torch.nn.parallel import DistributedDataParallel as DDP
 import torch.distributed as dist
 import torch.multiprocessing as mp
 
+# Removed TensorFlow imports for TF2.x compatibility
+
 from utility.utils import (setuplogger, init_process, cleanup_process, warmup_linear, get_device, lr_schedule,
                             get_barrier, only_on_main_process, check_args_environment, dump_args)
 from utility.metrics import acc, MetricsDict
@@ -294,7 +296,7 @@ def test(model, args, device, category_dict, subcategory_dict):
         dataloader = DataLoaderTest(
             news_index=news_info.news_index,
             news_scoring=news_vecs,
-            data_dirs='./data/speedy_data/dev/',
+            data_dirs='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/data/speedy_data/dev', #'./data/speedy_data/dev/',
             filename_pat=args.filename_pat,
             args=args,
             world_size=1,

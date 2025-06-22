@@ -51,6 +51,46 @@ def get_worker_files(dirnames,
     return files
 
 
+# # class StreamReader:
+#     def __init__(self, data_paths, batch_size, shuffle=False, shuffle_buffer_size=1000):
+#         tf.config.experimental.set_visible_devices([], device_type="GPU")
+#         logging.info(f"visible_devices:{tf.config.experimental.get_visible_devices()}")
+#         path_len = len(data_paths)
+
+#         dataset = tf.data.Dataset.list_files(data_paths, shuffle=False).interleave(
+#             lambda x: tf.data.TextLineDataset(x).map(lambda y: tf.strings.join([y, x], separator="\t")),
+#             cycle_length=path_len,
+#             block_length=batch_size,
+#             # num_parallel_calls=min(path_len, batch_size),
+#         )
+
+#         dataset = dataset.batch(batch_size)
+#         dataset = dataset.prefetch(3)
+#         #self.next_batch = dataset.make_one_shot_iterator().get_next()
+#         self.iterator = iter(dataset)
+#         self.next_batch = next(self.iterator)
+#         self.session = None
+
+
+#     def reset(self):
+#         # print(f"StreamReader reset(), {self.session}, pid:{threading.currentThread()}")
+#         if self.session:
+#             self.session.close()
+#         self.session = tf.Session()
+#         self.endofstream = False
+
+#     def get_next(self):
+#         try:
+#             ret = self.session.run(self.next_batch)
+#         except tf.errors.OutOfRangeError:
+#             self.endofstream = True
+#             return None
+#         return ret
+
+#     def reach_end(self):
+#         # print(f"StreamReader reach_end(), {self.endofstream}")
+#         return self.endofstream
+
 class StreamReader:
     def __init__(self, data_paths, batch_size, shuffle=False, shuffle_buffer_size=1000):
         tf.config.experimental.set_visible_devices([], device_type="GPU")
@@ -61,37 +101,76 @@ class StreamReader:
             lambda x: tf.data.TextLineDataset(x).map(lambda y: tf.strings.join([y, x], separator="\t")),
             cycle_length=path_len,
             block_length=batch_size,
-            # num_parallel_calls=min(path_len, batch_size),
         )
 
         dataset = dataset.batch(batch_size)
         dataset = dataset.prefetch(3)
-        #self.next_batch = dataset.make_one_shot_iterator().get_next()
-        self.iterator = iter(dataset)
-        self.next_batch = next(self.iterator)
-        self.session = None
-
+        self.dataset = dataset
+        self.iterator = None
+        self.endofstream = False
 
     def reset(self):
-        # print(f"StreamReader reset(), {self.session}, pid:{threading.currentThread()}")
-        if self.session:
-            self.session.close()
-        self.session = tf.Session()
+        self.iterator = iter(self.dataset)
         self.endofstream = False
 
     def get_next(self):
+        if self.iterator is None:
+            self.reset()
         try:
-            ret = self.session.run(self.next_batch)
-        except tf.errors.OutOfRangeError:
+            ret = next(self.iterator)
+            # Convert to numpy if needed
+            if tf.is_tensor(ret):
+                ret = ret.numpy()
+            elif isinstance(ret, (tuple, list)):
+                ret = [r.numpy() if tf.is_tensor(r) else r for r in ret]
+            return ret
+        except StopIteration:
             self.endofstream = True
             return None
-        return ret
 
     def reach_end(self):
-        # print(f"StreamReader reach_end(), {self.endofstream}")
         return self.endofstream
 
 
+# class StreamSampler:
+    # def __init__(
+    #     self,
+    #     data_dirs,
+    #     filename_pat,
+    #     batch_size,
+    #     worker_rank,
+    #     world_size,
+    #     enable_shuffle=False,
+    #     shuffle_buffer_size=1000,
+    #     shuffle_seed=0,
+    # ):
+    #     data_paths = get_worker_files(
+    #         data_dirs,
+    #         worker_rank,
+    #         world_size,
+    #         filename_pat,
+    #         shuffle=enable_shuffle,
+    #         seed=shuffle_seed,
+    #     )
+    #     self.data_paths = data_paths
+    #     self.stream_reader = StreamReader(data_paths, batch_size, enable_shuffle, shuffle_buffer_size)
+
+    # def __iter__(self):
+    #     self.stream_reader.reset()
+    #     return self
+
+    # def __next__(self):
+    #     """Implement iterator interface."""
+    #     # logging.info(f"[StreamSampler] __next__")
+    #     next_batch = self.stream_reader.get_next()
+    #     if not isinstance(next_batch, np.ndarray) and not isinstance(
+    #             next_batch, tuple) and not isinstance(next_batch, bytes):
+    #         raise StopIteration
+    #     # print(next_batch.shape)
+    #     return next_batch
+
+    # def reach_end(self):
+    #     return self.stream_reader.reach_end()
 class StreamSampler:
     def __init__(
         self,
@@ -120,18 +199,35 @@ class StreamSampler:
         return self
 
     def __next__(self):
-        """Implement iterator interface."""
-        # logging.info(f"[StreamSampler] __next__")
         next_batch = self.stream_reader.get_next()
-        if not isinstance(next_batch, np.ndarray) and not isinstance(
-                next_batch, tuple) and not isinstance(next_batch, bytes):
+        if next_batch is None:
             raise StopIteration
-        # print(next_batch.shape)
         return next_batch
 
     def reach_end(self):
         return self.stream_reader.reach_end()
 
+
+# # class StreamReaderForSpeedy:
+#     def __init__(self, file, batch_size):
+#         self.file = file
+#         self.stream_reader = StreamReader(file, batch_size)
+
+#     def __iter__(self):
+#         self.stream_reader.reset()
+#         return self
+
+#     def __next__(self):
+#         """Implement iterator interface."""
+#         # logging.info(f"[StreamSampler] __next__")
+#         next_batch = self.stream_reader.get_next()
+#         if not isinstance(next_batch, np.ndarray) and not isinstance(
+#                 next_batch, tuple) and not isinstance(next_batch, bytes):
+#             raise StopIteration
+#         return next_batch
+
+#     def reach_end(self):
+#         return self.stream_reader.reach_end()
 
 class StreamReaderForSpeedy:
     def __init__(self, file, batch_size):
@@ -143,16 +239,10 @@ class StreamReaderForSpeedy:
         return self
 
     def __next__(self):
-        """Implement iterator interface."""
-        # logging.info(f"[StreamSampler] __next__")
         next_batch = self.stream_reader.get_next()
-        if not isinstance(next_batch, np.ndarray) and not isinstance(
-                next_batch, tuple) and not isinstance(next_batch, bytes):
+        if next_batch is None:
             raise StopIteration
         return next_batch
-
-    def reach_end(self):
-        return self.stream_reader.reach_end()
 
 
 class StreamSamplerTrainForSpeedyRec:

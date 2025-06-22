@@ -225,10 +225,15 @@ class DataLoaderLeader(DataLoaderTest):
     def generate_batch(self):
         user_feature_batch, log_mask_batch, news_feature_batch, news_bias_batch, label_batch, market_batch = [], [], [], [], [], []
         user_news_history = []  # ADDED
+        user_news_history_batch = []
         impids = []
         for file in self.test_files:
             print(f'predicting: {file}')
             for line in tqdm(open(file, 'r')):  # ADDED tqdm
+                for line in tqdm(open(file, 'r')):
+                    fields = line.strip().split('\t')
+                    if len(fields) != 4:
+                        print(f"Malformed line ({len(fields)} fields): {fields}")
                 impid, uid, history, impressions = line.strip().split('\t')
                 click_docs = [i for i in history.split()]
 

@@ -60,7 +60,7 @@ The default pretrained model is UniLM v2, and you can get it from [unilm repo](h
 
 python train.py \
 --pretrained_model unilm \
---pretrained_model_path /home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/unilm-v1 \
+--pretrained_model_path /home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/
 --root_data_dir ./data/speedy_data/ \
 --num_hidden_layers 8 \
 --world_size 1 \
@@ -77,6 +77,7 @@ python train.py \
 --news_dim 256 \
 --epochs 3 \
 --load_ckpt_name /home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/saved_models/speedyrec_mind-epoch-1.pt
+--filename_pat "*.tsv"
 
 
 
@@ -91,6 +92,7 @@ python submission.py \
 --load_ckpt_name /home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/saved_models/speedyrec_mind-epoch-1.pt \
 --batch_size 256 \
 --news_dim 256
+--filename_pat ./data/speedy_data/test/ProtoBuf_0.tsv
 ```
 
 

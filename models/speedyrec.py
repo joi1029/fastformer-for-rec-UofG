@@ -56,8 +56,6 @@ class TextEncoder(nn.Module):
         super(TextEncoder, self).__init__()
         self.args = args
 
-
-
         config_class, model_class, tokenizer_class = MODEL_CLASSES[args.pretrained_model]
         self.config = config_class.from_pretrained(args.pretrained_model_path, output_hidden_states=True)
 
