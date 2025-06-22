@@ -36,17 +36,17 @@ The processed data will be saved to `./data/speedy_data/`.
 ## Training 
 ```
 python train.py \
---pretreained_model unilm \
---pretrained_model_path {path to ckpt of unilmv2} \
+--pretrained_model unilm \
+--pretrained_model_path /home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm \
 --root_data_dir ./data/speedy_data/ \
 --num_hidden_layers 8 \
---world_size 4 \
+--world_size 1 \
 --lr 1e-4 \
 --pretrain_lr 8e-6 \
 --warmup True \
 --schedule_step 240000 \
 --warmup_step 1000 \
---batch_size 42 \
+--batch_size 24 \
 --npratio 4 \
 --beta_for_cache 0.002 \
 --max_step_in_cache 2 \
@@ -58,19 +58,52 @@ The default pretrained model is UniLM v2, and you can get it from [unilm repo](h
 (like `roberta-base` and `microsoft/deberta-base`, which needs to be supported by [transformers](https://huggingface.co/transformers/model_doc/auto.html?highlight=automodel#transformers.AutoModel)).
 
 
+python train.py \
+--pretrained_model unilm \
+--pretrained_model_path /home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/unilm-v1 \
+--root_data_dir ./data/speedy_data/ \
+--num_hidden_layers 8 \
+--world_size 1 \
+--lr 1e-4 \
+--pretrain_lr 8e-6 \
+--warmup True \
+--schedule_step 240000 \
+--warmup_step 1000 \
+--batch_size 42 \
+--npratio 4 \
+--beta_for_cache 0.002 \
+--max_step_in_cache 2 \
+--savename speedyrec_mind \
+--news_dim 256 \
+--epochs 3 \
+--load_ckpt_name /home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/saved_models/speedyrec_mind-epoch-1.pt
+
+
 
 ## Prediction
 Run prediction using saved checkpoint:
 ```
 python submission.py \
---pretrained_model_path {path to ckpt of unilmv2} \
+--pretrained_model_path /home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/unilm-v1 \
 --pretreained_model unilm \
 --root_data_dir ./data/speedy_data/ \
 --num_hidden_layers 8 \
---load_ckpt_name {path to your saved model} \
+--load_ckpt_name /home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/saved_models/speedyrec_mind-epoch-1.pt \
 --batch_size 256 \
 --news_dim 256
 ```
+
+
+python submission.py \
+--pretrained_model_path /home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/unilm-v1 \
+--pretreained_model unilm \
+--root_data_dir ./data/speedy_data/ \
+--num_hidden_layers 8 \
+--load_ckpt_name  /home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/saved_models \
+--batch_size 256 \
+--news_dim 256
+
+
 It will creates a zip file:`predciton.zip`, which can be submitted to the leaderboard of MIND directly.  
 
 ## Training and prediction based on our trained model 

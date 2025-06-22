@@ -29,18 +29,32 @@ def str2bool(v):
     else:
         raise argparse.ArgumentTypeError("Boolean value expected.")
 
-def setuplogger():
+# def setuplogger():
+    # root = logging.getLogger()
+    # # logging.basicConfig(format="[%(levelname)s %(asctime)s] %(message)s", level=logging.INFO)
+    # root.setLevel(logging.INFO)
+    # handler = logging.StreamHandler(sys.stdout)
+    # handler.setLevel(logging.INFO)
+    # formatter = logging.Formatter("[%(levelname)s %(asctime)s] %(message)s")
+    # handler.setFormatter(formatter)
+    # if (root.hasHandlers()):
+    #     root.handlers.clear()
+    # root.addHandler(handler)
+
+def setuplogger(logfile="train.log"):
     root = logging.getLogger()
-    # logging.basicConfig(format="[%(levelname)s %(asctime)s] %(message)s", level=logging.INFO)
     root.setLevel(logging.INFO)
-    handler = logging.StreamHandler(sys.stdout)
-    handler.setLevel(logging.INFO)
+    stream_handler = logging.StreamHandler(sys.stdout)
+    stream_handler.setLevel(logging.INFO)
     formatter = logging.Formatter("[%(levelname)s %(asctime)s] %(message)s")
-    handler.setFormatter(formatter)
+    stream_handler.setFormatter(formatter)
+    file_handler = logging.FileHandler(logfile)
+    file_handler.setLevel(logging.INFO)
+    file_handler.setFormatter(formatter)
     if (root.hasHandlers()):
         root.handlers.clear()
-    root.addHandler(handler)
-
+    root.addHandler(stream_handler)
+    root.addHandler(file_handler)
 
 def dump_args(args):
     for arg in dir(args):
@@ -54,7 +68,14 @@ def init_process(rank, world_size):
     # initialize the process group
     os.environ["RANK"] = str(rank)
     dist.init_process_group("nccl", rank=rank, world_size=world_size, )
-    torch.cuda.set_device(rank)
+    #orch.cuda.set_device(rank)
+
+    # if world_size > 1:
+    #     dist.init_process_group(
+    #         backend="nccl",
+    #         world_size=world_size,
+    #         rank=rank
+    #     )
 
     # Explicitly setting seed to make sure that models created in two processes
     # start from same random weights and biases.
@@ -74,8 +95,11 @@ def get_device():
     return torch.device('cpu')
 
 
+# def get_barrier(dist_training):
+#     if dist_training:
+#         return dist.barrier
 def get_barrier(dist_training):
-    if dist_training:
+    if dist_training and dist.is_available() and dist.is_initialized():
         return dist.barrier
 
     def do_nothing():
@@ -110,7 +134,7 @@ def lr_schedule(init_lr, step, args):
 
 def init_world_size(world_size):
     assert world_size <= torch.cuda.device_count()
-    return torch.cuda.device_count() if world_size == -1 else world_size
+    return torch.cuda.device_count() if args.world_size == -1 else world_size
 
 def check_args_environment(args):
     if not torch.cuda.is_available():

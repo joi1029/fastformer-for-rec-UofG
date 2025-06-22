@@ -25,7 +25,7 @@ class NewsInfo:
         else:
             self.category_dict, self.subcategory_dict = {}, {}
 
-        _, _, tokenizer_class = MODEL_CLASSES[args.pretreained_model]
+        _, _, tokenizer_class = MODEL_CLASSES[args.pretrained_model]
         self.tokenizers = tokenizer_class.from_pretrained(self.args.pretrained_model_path, do_lower_case=True)
 
     def update_dict(self, dict, key, value=None):
@@ -211,4 +211,3 @@ def infer_news(model, device, news_combined, batch_size=64):
     news_vecs = np.array(news_vecs)
     logging.info("news scoring num: {}".format(news_vecs.shape[0]))
     return news_vecs
-

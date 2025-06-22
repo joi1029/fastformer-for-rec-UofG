@@ -57,12 +57,19 @@ def train(local_rank,
           data_files,
           end_dataloder,
           end_train,
-          dist_training=True):
+          dist_training=None):
 
     setuplogger()
+
+    if dist_training is None:
+        dist_training = args.world_size > 1
+    
     try:
         if dist_training:
-            init_process(local_rank, args.world_size)
+            if args.world_size > 1:
+                init_process(local_rank, args.world_size)
+
+        init_process(local_rank, args.world_size)
         device = get_device()
         barrier = get_barrier(dist_training)
 
@@ -287,8 +294,7 @@ def test(model, args, device, category_dict, subcategory_dict):
         dataloader = DataLoaderTest(
             news_index=news_info.news_index,
             news_scoring=news_vecs,
-            data_dirs=[os.path.join(args.root_data_dir,
-                                    f'dev/')],
+            data_dirs='./data/speedy_data/dev/',
             filename_pat=args.filename_pat,
             args=args,
             world_size=1,
@@ -344,6 +350,6 @@ if __name__ == '__main__':
     setuplogger()
     args = parse_args()
     ddp_train_vd(args)
-
-
+    if dist.is_initialized():
+        dist.destroy_process_group()
 

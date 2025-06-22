@@ -1,0 +1,903 @@
+[INFO 2025-06-17 08:52:17,635] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/unilm-v1', pretreained_model='unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-17 08:52:17,635] -----------start train------------
+[INFO 2025-06-17 08:52:20,532] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-17 08:52:20,532] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-17 08:52:20,570] Load cache from ./data/speedy_data//train/unilm-v1_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-17 08:52:24,964] Load local ckpts
+[INFO 2025-06-17 08:52:25,867] This model has 1 poolers.
+[INFO 2025-06-17 08:52:26,198] Training...
+[INFO 2025-06-17 08:52:26,320] start async...
+[INFO 2025-06-17 08:52:26,384] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-17 08:52:26,489] epoch:1, time:0.2912447452545166, encode_num:0
+[INFO 2025-06-17 08:52:27,218] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-17 08:52:27,245] Load cache from ./data/speedy_data//dev/unilm-v1_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-17 08:53:24,293] news scoring num: 72024
+[INFO 2025-06-17 08:53:24,293] DataLoader __iter__()
+[INFO 2025-06-17 08:53:24,294] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:./data/speedy_data/dev/, files:['./data/speedy_data/dev/ProtoBuf_0.tsv']
+[INFO 2025-06-17 08:56:07,203] 
+[INFO 2025-06-18 02:26:40,398] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/unilm-v1', pretreained_model='unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-18 02:26:40,398] -----------start train------------
+[INFO 2025-06-18 02:26:43,194] name 'world_size' is not defined
+[INFO 2025-06-18 02:32:51,316] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/unilm-v1', pretreained_model='unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-18 02:32:51,316] -----------start train------------
+[INFO 2025-06-18 02:32:54,148] name 'world_size' is not defined
+[INFO 2025-06-18 03:45:13,872] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/unilm-v1', pretreained_model='unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-18 03:45:13,873] -----------start train------------
+[INFO 2025-06-18 03:45:16,842] name 'world_size' is not defined
+[INFO 2025-06-18 03:45:39,751] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/unilm-v1', pretreained_model='unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-18 03:45:39,751] -----------start train------------
+[INFO 2025-06-18 03:45:42,752] name 'world_size' is not defined
+[INFO 2025-06-18 03:48:15,529] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/unilm-v1', pretreained_model='unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-18 03:48:15,529] -----------start train------------
+[INFO 2025-06-18 03:48:18,392] Load cache from ./data/speedy_data//train/unilm-v1_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-18 03:48:21,625] Default process group has not been initialized, please make sure to call init_process_group.
+[INFO 2025-06-18 03:49:47,112] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/unilm-v1', pretreained_model='unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-18 03:49:47,113] -----------start train------------
+[INFO 2025-06-18 03:49:49,938] Load cache from ./data/speedy_data//train/unilm-v1_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-18 03:49:53,166] Default process group has not been initialized, please make sure to call init_process_group.
+[INFO 2025-06-18 03:54:50,246] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/unilm-v1', pretreained_model='unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-18 03:54:50,246] -----------start train------------
+[INFO 2025-06-18 03:54:53,072] Load cache from ./data/speedy_data//train/unilm-v1_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-18 03:54:56,361] Load local ckpts
+[INFO 2025-06-18 03:54:57,255] This model has 1 poolers.
+[INFO 2025-06-18 03:54:58,539] Training...
+[INFO 2025-06-18 03:54:58,663] start async...
+[INFO 2025-06-18 03:54:58,726] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-18 03:54:58,743] Default process group has not been initialized, please make sure to call init_process_group.
+[INFO 2025-06-18 03:55:16,803] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/unilm-v1', pretreained_model='unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-18 03:55:16,803] -----------start train------------
+[INFO 2025-06-18 03:55:19,622] Load cache from ./data/speedy_data//train/unilm-v1_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-18 03:55:22,899] Load local ckpts
+[INFO 2025-06-18 03:55:23,779] This model has 1 poolers.
+[INFO 2025-06-18 03:55:25,051] Training...
+[INFO 2025-06-18 03:55:25,182] start async...
+[INFO 2025-06-18 03:55:25,246] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-18 03:55:25,264] Default process group has not been initialized, please make sure to call init_process_group.
+[INFO 2025-06-18 04:02:25,447] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/unilm-v1', pretreained_model='unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-18 04:02:25,447] -----------start train------------
+[INFO 2025-06-18 04:02:28,312] Load cache from ./data/speedy_data//train/unilm-v1_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-18 04:02:31,588] 'NoneType' object is not callable
+[INFO 2025-06-18 04:03:59,904] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/unilm-v1', pretreained_model='unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-18 04:03:59,904] -----------start train------------
+[INFO 2025-06-18 04:04:02,741] Load cache from ./data/speedy_data//train/unilm-v1_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-18 04:04:06,079] Load local ckpts
+[INFO 2025-06-18 04:04:06,973] This model has 1 poolers.
+[INFO 2025-06-18 04:04:08,264] Training...
+[INFO 2025-06-18 04:04:08,395] start async...
+[INFO 2025-06-18 04:04:08,456] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-18 04:04:08,474] Default process group has not been initialized, please make sure to call init_process_group.
+[INFO 2025-06-18 04:06:59,580] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/unilm-v1', pretreained_model='unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-18 04:06:59,580] -----------start train------------
+[INFO 2025-06-18 04:07:02,425] Load cache from ./data/speedy_data//train/unilm-v1_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-18 04:07:05,757] Load local ckpts
+[INFO 2025-06-18 04:07:06,653] This model has 1 poolers.
+[INFO 2025-06-18 04:07:07,954] Training...
+[INFO 2025-06-18 04:07:08,087] start async...
+[INFO 2025-06-18 04:07:08,151] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-18 04:07:08,170] Default process group has not been initialized, please make sure to call init_process_group.
+[INFO 2025-06-18 04:13:30,487] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/unilm-v1', pretreained_model='unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-18 04:13:30,488] -----------start train------------
+[INFO 2025-06-18 04:13:33,348] Load cache from ./data/speedy_data//train/unilm-v1_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-18 04:13:36,695] Load local ckpts
+[INFO 2025-06-18 04:13:37,578] This model has 1 poolers.
+[INFO 2025-06-18 04:13:38,965] Training...
+[INFO 2025-06-18 04:13:39,107] start async...
+[INFO 2025-06-18 04:13:39,175] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-18 04:13:39,194] Default process group has not been initialized, please make sure to call init_process_group.
+[INFO 2025-06-18 04:55:52,595] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/unilm-v1', pretreained_model='unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-18 04:55:52,595] -----------start train------------
+[INFO 2025-06-18 04:55:55,443] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-18 04:55:55,443] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-18 04:55:55,465] Load cache from ./data/speedy_data//train/unilm-v1_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-18 04:55:58,773] Load local ckpts
+[INFO 2025-06-18 04:55:59,660] This model has 1 poolers.
+[INFO 2025-06-18 04:56:00,952] Training...
+[INFO 2025-06-18 04:56:01,082] start async...
+[INFO 2025-06-18 04:56:01,148] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-18 04:56:01,271] epoch:1, time:0.3187844753265381, encode_num:0
+[INFO 2025-06-18 04:56:01,897] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-18 04:56:01,921] Load cache from ./data/speedy_data//dev/unilm-v1_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-18 04:56:58,930] news scoring num: 72024
+[INFO 2025-06-18 04:56:58,930] DataLoader __iter__()
+[INFO 2025-06-18 04:56:58,931] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:./data/speedy_data/dev/, files:['./data/speedy_data/dev/ProtoBuf_0.tsv']
+[INFO 2025-06-18 04:57:15,400] 
+[INFO 2025-06-18 04:57:22,313] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=3, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/saved_models/speedyrec_mind-epoch-1.pt', log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/unilm-v1', pretreained_model='unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-18 04:57:22,313] -----------start train------------
+[INFO 2025-06-18 04:57:25,191] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-18 04:57:25,191] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-18 04:57:25,212] Load cache from ./data/speedy_data//train/unilm-v1_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-18 04:57:28,569] Load local ckpts
+[INFO 2025-06-18 04:57:29,474] This model has 1 poolers.
+[INFO 2025-06-18 04:57:30,758] Training...
+[INFO 2025-06-18 04:57:30,891] start async...
+[INFO 2025-06-18 04:57:30,955] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-18 04:57:31,079] epoch:1, time:0.32102251052856445, encode_num:0
+[INFO 2025-06-18 04:57:32,107] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-18 04:57:32,136] Load cache from ./data/speedy_data//dev/unilm-v1_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-18 04:57:38,716] 
+[INFO 2025-06-19 05:04:47,174] Namespace(attention_dims=20, batch_size=256, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/saved_models/speedyrec_mind-epoch-1.pt', log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=20, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=1, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=0.0001, pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/unilm-v1', pretreained_model='unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedy', schedule_step=30000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=False, warmup_step=2000, word_embedding_dim=300, world_size=-1)
+[INFO 2025-06-19 05:04:47,175] -----------start test------------
+[INFO 2025-06-19 05:14:41,213] Namespace(attention_dims=20, batch_size=256, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/saved_models/speedyrec_mind-epoch-1.pt', log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=20, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=1, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=0.0001, pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/unilm-v1', pretreained_model='unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedy', schedule_step=30000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=False, warmup_step=2000, word_embedding_dim=300, world_size=-1)
+[INFO 2025-06-19 05:14:41,214] -----------start test------------
+[INFO 2025-06-19 05:15:49,065] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', pretreained_model='unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-19 05:15:49,066] -----------start train------------
+[INFO 2025-06-19 05:15:50,999] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-19 05:15:50,999] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-19 05:17:40,187] Cached data saved at ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 05:17:41,777] 'Namespace' object has no attribute 'pretrained_model'
+[INFO 2025-06-19 05:19:46,047] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', pretreained_model='unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-19 05:19:46,048] -----------start train------------
+[INFO 2025-06-19 05:19:47,954] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-19 05:19:47,954] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-19 05:19:47,976] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 05:19:52,396] 'Namespace' object has no attribute 'pretrained_model'
+[INFO 2025-06-19 05:32:03,947] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', pretreained_model='unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-19 05:32:03,947] -----------start train------------
+[INFO 2025-06-19 05:32:05,940] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-19 05:32:05,940] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-19 05:32:05,962] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 05:32:10,696] 'Namespace' object has no attribute 'pretrained_model'
+[INFO 2025-06-19 05:33:52,855] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-19 05:33:52,855] -----------start train------------
+[INFO 2025-06-19 05:33:54,777] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-19 05:33:54,778] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-19 05:33:54,779] 'Namespace' object has no attribute 'pretreained_model'
+[INFO 2025-06-19 05:34:15,135] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-19 05:34:15,135] -----------start train------------
+[INFO 2025-06-19 05:34:17,041] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-19 05:34:17,041] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-19 05:34:17,042] 'Namespace' object has no attribute 'pretreained_model'
+[INFO 2025-06-19 05:35:20,021] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-19 05:35:20,022] -----------start train------------
+[INFO 2025-06-19 05:35:21,925] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-19 05:35:21,925] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-19 05:35:21,926] 'Namespace' object has no attribute 'pretreained_model'
+[INFO 2025-06-19 05:35:36,264] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-19 05:35:36,265] -----------start train------------
+[INFO 2025-06-19 05:35:38,194] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-19 05:35:38,194] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-19 05:35:38,216] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 05:35:42,808] Load local ckpts
+[INFO 2025-06-19 05:35:43,187] 'TuringNLRv3Config' object has no attribute 'rel_pos_bins'
+[INFO 2025-06-19 07:07:30,672] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-19 07:07:30,673] -----------start train------------
+[INFO 2025-06-19 07:07:32,581] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-19 07:07:32,581] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-19 07:07:32,603] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 07:07:37,116] Load local ckpts
+[INFO 2025-06-19 07:07:37,493] 'TuringNLRv3Config' object has no attribute 'rel_pos_bins'
+[INFO 2025-06-19 07:09:16,154] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-19 07:09:16,154] -----------start train------------
+[INFO 2025-06-19 07:09:18,075] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-19 07:09:18,075] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-19 07:09:18,097] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 07:09:22,573] Load local ckpts
+[INFO 2025-06-19 07:09:23,462] This model has 1 poolers.
+[INFO 2025-06-19 07:09:24,957] Training...
+[INFO 2025-06-19 07:09:25,121] CUDA error: no kernel image is available for execution on the device
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+[INFO 2025-06-19 07:09:45,325] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-19 07:09:45,325] -----------start train------------
+[INFO 2025-06-19 07:09:47,246] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-19 07:09:47,247] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-19 07:09:47,269] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 07:09:51,775] Load local ckpts
+[INFO 2025-06-19 07:09:52,678] This model has 1 poolers.
+[INFO 2025-06-19 07:09:53,260] Training...
+[INFO 2025-06-19 07:09:53,410] CUDA error: no kernel image is available for execution on the device
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+[INFO 2025-06-19 07:12:41,964] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-19 07:12:41,964] -----------start train------------
+[INFO 2025-06-19 07:12:43,975] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-19 07:12:43,975] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-19 07:12:43,998] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 07:12:48,813] Load local ckpts
+[INFO 2025-06-19 07:12:49,218] 'TuringNLRv3Config' object has no attribute 'rel_pos_bins'
+[INFO 2025-06-19 07:26:21,835] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-19 07:26:21,835] -----------start train------------
+[INFO 2025-06-19 07:26:23,756] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-19 07:26:23,756] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-19 07:26:23,778] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 07:26:28,260] Load local ckpts
+[INFO 2025-06-19 07:26:29,152] This model has 1 poolers.
+[INFO 2025-06-19 07:26:29,729] Training...
+[INFO 2025-06-19 07:26:29,883] CUDA error: no kernel image is available for execution on the device
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+[INFO 2025-06-19 07:38:33,869] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-19 07:38:33,870] -----------start train------------
+[INFO 2025-06-19 07:38:36,715] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-19 07:38:36,715] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-19 07:38:36,737] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 07:38:40,103] Load local ckpts
+[INFO 2025-06-19 07:38:40,988] This model has 1 poolers.
+[INFO 2025-06-19 07:38:43,245] Training...
+[INFO 2025-06-19 07:38:43,378] start async...
+[INFO 2025-06-19 07:38:43,885] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-19 07:38:44,070] epoch:1, time:0.8254930973052979, encode_num:0
+[INFO 2025-06-19 07:38:44,603] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-19 07:39:52,887] Cached data saved at ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 07:40:46,833] news scoring num: 72024
+[INFO 2025-06-19 07:40:46,833] DataLoader __iter__()
+[INFO 2025-06-19 07:40:46,834] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:./data/speedy_data/dev/, files:['./data/speedy_data/dev/ProtoBuf_0.tsv']
+[INFO 2025-06-19 07:47:18,580] 
+[INFO 2025-06-19 07:53:22,969] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-19 07:53:22,970] -----------start train------------
+[INFO 2025-06-19 07:53:25,867] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-19 07:53:25,867] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-19 07:53:25,888] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 07:53:29,189] Load local ckpts
+[INFO 2025-06-19 07:53:30,072] This model has 1 poolers.
+[INFO 2025-06-19 07:53:31,350] Training...
+[INFO 2025-06-19 07:53:31,479] start async...
+[INFO 2025-06-19 07:53:31,542] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-19 07:53:31,664] epoch:1, time:0.31330394744873047, encode_num:0
+[INFO 2025-06-19 07:53:32,281] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-19 07:53:32,305] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 07:54:29,261] news scoring num: 72024
+[INFO 2025-06-19 07:54:29,261] DataLoader __iter__()
+[INFO 2025-06-19 07:54:29,262] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:./data/speedy_data/dev/, files:['./data/speedy_data/dev/ProtoBuf_0.tsv']
+[INFO 2025-06-19 07:54:49,872] 
+[INFO 2025-06-19 08:00:13,197] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-19 08:00:13,197] -----------start train------------
+[INFO 2025-06-19 08:00:16,087] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-19 08:00:16,087] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-19 08:00:16,108] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 08:00:19,400] Load local ckpts
+[INFO 2025-06-19 08:00:20,282] This model has 1 poolers.
+[INFO 2025-06-19 08:00:21,578] Training...
+[INFO 2025-06-19 08:00:21,704] start async...
+[INFO 2025-06-19 08:00:21,771] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-19 08:00:21,896] epoch:1, time:0.3181450366973877, encode_num:0
+[INFO 2025-06-19 08:00:22,531] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-19 08:00:22,555] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 08:01:19,553] news scoring num: 72024
+[INFO 2025-06-19 08:01:19,553] DataLoader __iter__()
+[INFO 2025-06-19 08:01:19,554] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:./data/speedy_data/dev/, files:['./data/speedy_data/dev/ProtoBuf_0.tsv']
+[INFO 2025-06-19 08:03:33,118] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-19 08:03:33,118] -----------start train------------
+[INFO 2025-06-19 08:03:35,904] The server socket has failed to listen on any local network address. The server socket has failed to bind to [::]:12365 (errno: 98 - Address already in use). The server socket has failed to bind to 0.0.0.0:12365 (errno: 98 - Address already in use).
+[INFO 2025-06-19 08:05:21,330] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-19 08:05:21,330] -----------start train------------
+[INFO 2025-06-19 08:05:24,283] The server socket has failed to listen on any local network address. The server socket has failed to bind to [::]:12365 (errno: 98 - Address already in use). The server socket has failed to bind to 0.0.0.0:12365 (errno: 98 - Address already in use).
+[INFO 2025-06-19 08:06:04,043] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-19 08:06:04,044] -----------start train------------
+[INFO 2025-06-19 08:06:06,866] The server socket has failed to listen on any local network address. The server socket has failed to bind to [::]:12365 (errno: 98 - Address already in use). The server socket has failed to bind to 0.0.0.0:12365 (errno: 98 - Address already in use).
+[INFO 2025-06-19 08:09:17,065] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-19 08:09:17,066] -----------start train------------
+[INFO 2025-06-19 08:09:19,956] The server socket has failed to listen on any local network address. The server socket has failed to bind to [::]:12365 (errno: 98 - Address already in use). The server socket has failed to bind to 0.0.0.0:12365 (errno: 98 - Address already in use).
+[INFO 2025-06-19 08:09:36,007] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-19 08:09:36,008] -----------start train------------
+[INFO 2025-06-19 08:09:38,836] The server socket has failed to listen on any local network address. The server socket has failed to bind to [::]:12365 (errno: 98 - Address already in use). The server socket has failed to bind to 0.0.0.0:12365 (errno: 98 - Address already in use).
+[INFO 2025-06-19 08:16:30,393] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-19 08:16:30,393] -----------start train------------
+[INFO 2025-06-19 08:16:33,293] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-19 08:16:33,293] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-19 08:16:33,314] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 08:16:36,699] Load local ckpts
+[INFO 2025-06-19 08:16:37,583] This model has 1 poolers.
+[INFO 2025-06-19 08:16:38,863] Training...
+[INFO 2025-06-19 08:16:38,994] start async...
+[INFO 2025-06-19 08:16:39,058] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-19 08:16:39,180] epoch:1, time:0.3165891170501709, encode_num:0
+[INFO 2025-06-19 08:16:39,881] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-19 08:16:39,908] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 08:17:36,933] news scoring num: 72024
+[INFO 2025-06-19 08:17:36,933] DataLoader __iter__()
+[INFO 2025-06-19 08:17:36,934] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:./data/speedy_data/dev/, files:['./data/speedy_data/dev/ProtoBuf_0.tsv']
+[INFO 2025-06-19 08:49:28,039] 
+[INFO 2025-06-19 08:49:35,459] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-19 08:49:35,460] -----------start train------------
+[INFO 2025-06-19 08:49:38,343] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-19 08:49:38,343] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-19 08:49:38,364] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 08:49:41,709] Load local ckpts
+[INFO 2025-06-19 08:49:42,588] This model has 1 poolers.
+[INFO 2025-06-19 08:49:43,864] Training...
+[INFO 2025-06-19 08:49:43,993] start async...
+[INFO 2025-06-19 08:49:44,057] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-19 08:49:44,182] epoch:1, time:0.3176994323730469, encode_num:0
+[INFO 2025-06-19 08:49:44,919] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-19 08:49:44,946] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 08:50:42,074] news scoring num: 72024
+[INFO 2025-06-19 08:50:42,074] DataLoader __iter__()
+[INFO 2025-06-19 08:50:42,075] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:./data/speedy_data/dev/, files:['./data/speedy_data/dev/ProtoBuf_0.tsv']
+[INFO 2025-06-19 08:51:00,796] 
+[INFO 2025-06-19 08:55:39,281] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-19 08:55:39,281] -----------start train------------
+[INFO 2025-06-19 08:55:42,178] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-19 08:55:42,178] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-19 08:55:42,199] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 08:55:45,555] Load local ckpts
+[INFO 2025-06-19 08:55:46,436] This model has 1 poolers.
+[INFO 2025-06-19 08:55:47,729] Training...
+[INFO 2025-06-19 08:55:47,862] start async...
+[INFO 2025-06-19 08:55:47,928] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-19 08:55:48,051] epoch:1, time:0.32178664207458496, encode_num:0
+[INFO 2025-06-19 08:55:48,720] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-19 08:55:48,745] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 08:56:45,892] news scoring num: 72024
+[INFO 2025-06-19 08:56:45,892] DataLoader __iter__()
+[INFO 2025-06-19 08:56:45,893] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:./data/speedy_data/dev/, files:['./data/speedy_data/dev/ProtoBuf_0.tsv']
+[INFO 2025-06-19 08:58:38,529] 
+[INFO 2025-06-19 08:59:04,180] Namespace(attention_dims=20, batch_size=256, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/saved_models/speedyrec_mind-epoch-1.pt', log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=20, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=1, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=0.0001, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/unilm-v1', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedy', schedule_step=30000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=False, warmup_step=2000, word_embedding_dim=300, world_size=-1)
+[INFO 2025-06-19 08:59:04,180] -----------start test------------
+[INFO 2025-06-19 08:59:24,513] Namespace(attention_dims=20, batch_size=256, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/saved_models/speedyrec_mind-epoch-1.pt', log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=20, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=1, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=0.0001, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedy', schedule_step=30000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=False, warmup_step=2000, word_embedding_dim=300, world_size=-1)
+[INFO 2025-06-19 08:59:24,514] -----------start test------------
+[INFO 2025-06-19 08:59:24,559] Load local ckpts
+[INFO 2025-06-19 08:59:25,457] This model has 1 poolers.
+[INFO 2025-06-19 09:01:13,482] Cached data saved at ./data/speedy_data//test/_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 09:02:43,244] news scoring num: 120962
+[INFO 2025-06-19 09:19:08,586] Namespace(attention_dims=20, batch_size=256, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/saved_models/speedyrec_mind-epoch-1.pt', log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=20, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=1, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=0.0001, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedy', schedule_step=30000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=False, warmup_step=2000, word_embedding_dim=300, world_size=-1)
+[INFO 2025-06-19 09:19:08,587] -----------start test------------
+[INFO 2025-06-19 09:19:08,631] Load local ckpts
+[INFO 2025-06-19 09:19:09,535] This model has 1 poolers.
+[INFO 2025-06-19 09:19:10,920] Load cache from ./data/speedy_data//test/_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 09:20:43,830] news scoring num: 120962
+[INFO 2025-06-19 10:01:16,954] Namespace(attention_dims=20, batch_size=256, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/saved_models/speedyrec_mind-epoch-1.pt', log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=20, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=1, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=0.0001, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedy', schedule_step=30000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=False, warmup_step=2000, word_embedding_dim=300, world_size=-1)
+[INFO 2025-06-19 10:01:16,954] -----------start test------------
+[INFO 2025-06-19 10:01:16,999] Load local ckpts
+[INFO 2025-06-19 10:01:17,926] This model has 1 poolers.
+[INFO 2025-06-19 10:01:19,344] Load cache from ./data/speedy_data//test/_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-19 10:02:52,371] news scoring num: 120962
+[INFO 2025-06-20 01:27:26,713] Namespace(attention_dims=20, batch_size=256, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/saved_models/speedyrec_mind-epoch-1.pt', log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=20, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=1, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=0.0001, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm/', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedy', schedule_step=30000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=False, warmup_step=2000, word_embedding_dim=300, world_size=-1)
+[INFO 2025-06-20 01:27:26,713] -----------start test------------
+[INFO 2025-06-20 01:27:26,757] Load local ckpts
+[INFO 2025-06-20 01:27:27,660] This model has 1 poolers.
+[INFO 2025-06-20 01:27:29,018] Load cache from ./data/speedy_data//test/_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 01:29:01,866] news scoring num: 120962
+[INFO 2025-06-20 01:32:19,138] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 01:32:19,138] -----------start train------------
+[INFO 2025-06-20 01:32:22,038] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 01:32:22,039] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 01:32:22,059] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 01:32:25,457] Load local ckpts
+[INFO 2025-06-20 01:32:26,345] This model has 1 poolers.
+[INFO 2025-06-20 01:32:27,635] Training...
+[INFO 2025-06-20 01:32:27,762] start async...
+[INFO 2025-06-20 01:32:27,825] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 01:32:27,952] epoch:1, time:0.31636738777160645, encode_num:0
+[INFO 2025-06-20 01:32:28,774] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 01:32:28,799] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 01:33:26,005] news scoring num: 72024
+[INFO 2025-06-20 01:33:26,006] DataLoader __iter__()
+[INFO 2025-06-20 01:33:26,007] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:./data/speedy_data/dev/, files:['./data/speedy_data/dev/ProtoBuf_0.tsv']
+[INFO 2025-06-20 01:35:54,213] 
+[INFO 2025-06-20 01:38:24,061] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 01:38:24,062] -----------start train------------
+[INFO 2025-06-20 01:38:27,100] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 01:38:27,101] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 01:38:27,122] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 01:38:30,678] Load local ckpts
+[INFO 2025-06-20 01:38:32,017] This model has 1 poolers.
+[INFO 2025-06-20 01:38:33,399] Training...
+[INFO 2025-06-20 01:38:33,534] start async...
+[INFO 2025-06-20 01:38:33,604] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 01:38:33,735] epoch:1, time:0.3363921642303467, encode_num:0
+[INFO 2025-06-20 01:38:34,444] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 01:38:34,471] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 01:39:31,734] news scoring num: 72024
+[INFO 2025-06-20 01:39:31,735] DataLoader __iter__()
+[INFO 2025-06-20 01:39:31,736] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:./data/speedy_data/dev/, files:['./data/speedy_data/dev/ProtoBuf_0.tsv']
+[INFO 2025-06-20 01:41:45,242] 
+[INFO 2025-06-20 01:41:51,995] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 01:41:51,996] -----------start train------------
+[INFO 2025-06-20 01:41:54,918] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 01:41:54,919] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 01:41:54,939] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 01:41:58,280] Load local ckpts
+[INFO 2025-06-20 01:41:59,175] This model has 1 poolers.
+[INFO 2025-06-20 01:42:00,462] Training...
+[INFO 2025-06-20 01:42:00,589] start async...
+[INFO 2025-06-20 01:42:00,655] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 01:42:00,780] epoch:1, time:0.31762242317199707, encode_num:0
+[INFO 2025-06-20 01:42:01,435] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 01:42:01,459] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 01:42:58,888] news scoring num: 72024
+[INFO 2025-06-20 01:42:58,888] DataLoader __iter__()
+[INFO 2025-06-20 01:42:58,889] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:./data/speedy_data/dev/, files:['./data/speedy_data/dev/ProtoBuf_0.tsv']
+[INFO 2025-06-20 01:42:58,961] cannot unpack non-iterable NoneType object
+[INFO 2025-06-20 01:45:24,262] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 01:45:24,262] -----------start train------------
+[INFO 2025-06-20 01:45:27,201] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 01:45:27,201] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 01:45:27,223] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 01:45:30,599] Load local ckpts
+[INFO 2025-06-20 01:45:31,490] This model has 1 poolers.
+[INFO 2025-06-20 01:45:32,785] Training...
+[INFO 2025-06-20 01:45:32,915] start async...
+[INFO 2025-06-20 01:45:32,978] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 01:45:33,102] epoch:1, time:0.3169255256652832, encode_num:0
+[INFO 2025-06-20 01:45:33,755] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 01:45:33,785] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 01:46:34,975] news scoring num: 72024
+[INFO 2025-06-20 01:46:34,975] DataLoader __iter__()
+[INFO 2025-06-20 01:46:34,976] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:./data/speedy_data/dev/, files:['./data/speedy_data/dev/ProtoBuf_0.tsv']
+[INFO 2025-06-20 01:46:35,048] shut down pool.
+[INFO 2025-06-20 01:46:35,050] local variable 'cnt' referenced before assignment
+[INFO 2025-06-20 01:52:19,536] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 01:52:19,537] -----------start train------------
+[INFO 2025-06-20 01:52:22,446] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 01:52:22,446] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 01:52:22,467] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 01:52:25,937] Load local ckpts
+[INFO 2025-06-20 01:52:26,829] This model has 1 poolers.
+[INFO 2025-06-20 01:52:28,121] Training...
+[INFO 2025-06-20 01:52:28,247] start async...
+[INFO 2025-06-20 01:52:28,310] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 01:52:28,435] epoch:1, time:0.3139326572418213, encode_num:0
+[INFO 2025-06-20 01:52:29,103] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 01:52:29,130] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 01:53:26,232] news scoring num: 72024
+[INFO 2025-06-20 01:53:26,232] DataLoader __iter__()
+[INFO 2025-06-20 01:53:26,233] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:./data/speedy_data/dev/, files:['./data/speedy_data/dev/ProtoBuf_0.tsv']
+[INFO 2025-06-20 01:53:26,309] shut down pool.
+[INFO 2025-06-20 01:53:26,311] local variable 'cnt' referenced before assignment
+[INFO 2025-06-20 01:57:39,717] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 01:57:39,717] -----------start train------------
+[INFO 2025-06-20 01:57:42,649] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 01:57:42,649] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 01:57:42,670] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 01:57:46,066] Load local ckpts
+[INFO 2025-06-20 01:57:46,985] This model has 1 poolers.
+[INFO 2025-06-20 01:57:48,292] Training...
+[INFO 2025-06-20 01:57:48,418] start async...
+[INFO 2025-06-20 01:57:48,482] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 01:57:48,610] epoch:1, time:0.3177330493927002, encode_num:0
+[INFO 2025-06-20 01:57:49,284] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 01:57:49,310] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 01:58:46,570] news scoring num: 72024
+[INFO 2025-06-20 01:58:46,570] DataLoader __iter__()
+[INFO 2025-06-20 01:58:46,571] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:./data/speedy_data/dev/, files:['./data/speedy_data/dev/ProtoBuf_0.tsv']
+[ERROR 2025-06-20 01:58:46,625] Producer thread crashed: name 'time' is not defined
+[INFO 2025-06-20 01:59:18,181] 
+[INFO 2025-06-20 01:59:24,541] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 01:59:24,541] -----------start train------------
+[INFO 2025-06-20 01:59:27,444] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 01:59:27,444] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 01:59:27,465] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 01:59:30,915] Load local ckpts
+[INFO 2025-06-20 01:59:31,806] This model has 1 poolers.
+[INFO 2025-06-20 01:59:33,100] Training...
+[INFO 2025-06-20 01:59:33,226] start async...
+[INFO 2025-06-20 01:59:33,293] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 01:59:33,420] epoch:1, time:0.32036876678466797, encode_num:0
+[INFO 2025-06-20 01:59:34,064] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 01:59:34,092] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 02:00:31,585] news scoring num: 72024
+[INFO 2025-06-20 02:00:31,585] DataLoader __iter__()
+[INFO 2025-06-20 02:00:31,586] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:./data/speedy_data/dev/, files:['./data/speedy_data/dev/ProtoBuf_0.tsv']
+[INFO 2025-06-20 02:00:31,662] shut down pool.
+[INFO 2025-06-20 02:00:31,664] local variable 'cnt' referenced before assignment
+[INFO 2025-06-20 02:20:31,309] Namespace(attention_dims=20, batch_size=24, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 02:20:31,310] -----------start train------------
+[INFO 2025-06-20 02:20:34,225] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 02:20:34,225] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 02:20:34,246] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 02:20:37,603] Load local ckpts
+[INFO 2025-06-20 02:20:38,497] This model has 1 poolers.
+[INFO 2025-06-20 02:20:39,792] Training...
+[INFO 2025-06-20 02:20:39,932] start async...
+[INFO 2025-06-20 02:20:39,997] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 02:20:40,124] epoch:1, time:0.33204007148742676, encode_num:0
+[INFO 2025-06-20 02:20:40,973] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 02:20:41,001] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 02:21:38,230] news scoring num: 72024
+[INFO 2025-06-20 02:21:38,231] DataLoader __iter__()
+[INFO 2025-06-20 02:21:38,231] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:./data/speedy_data/dev/, files:['./data/speedy_data/dev/ProtoBuf_0.tsv']
+[INFO 2025-06-20 02:21:38,302] shut down pool.
+[INFO 2025-06-20 02:21:38,305] local variable 'cnt' referenced before assignment
+[INFO 2025-06-20 02:27:24,112] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 02:27:24,112] -----------start train------------
+[INFO 2025-06-20 02:27:27,003] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 02:27:27,003] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 02:27:27,024] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 02:27:30,447] Load local ckpts
+[INFO 2025-06-20 02:27:31,336] This model has 1 poolers.
+[INFO 2025-06-20 02:27:32,632] Training...
+[INFO 2025-06-20 02:27:32,768] start async...
+[INFO 2025-06-20 02:27:32,836] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 02:27:32,962] epoch:1, time:0.32952404022216797, encode_num:0
+[INFO 2025-06-20 02:27:33,677] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 02:27:33,703] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 02:28:30,806] news scoring num: 72024
+[INFO 2025-06-20 02:28:30,807] DataLoader __iter__()
+[INFO 2025-06-20 02:28:30,807] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:./data/speedy_data/dev/, files:['./data/speedy_data/dev/ProtoBuf_0.tsv']
+[INFO 2025-06-20 02:28:30,879] shut down pool.
+[INFO 2025-06-20 02:28:30,881] local variable 'cnt' referenced before assignment
+[INFO 2025-06-20 02:30:55,755] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 02:30:55,756] -----------start train------------
+[INFO 2025-06-20 02:30:58,676] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 02:30:58,676] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 02:30:58,697] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 02:31:02,160] Load local ckpts
+[INFO 2025-06-20 02:31:03,046] This model has 1 poolers.
+[INFO 2025-06-20 02:31:04,354] Training...
+[INFO 2025-06-20 02:31:04,486] start async...
+[INFO 2025-06-20 02:31:04,552] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 02:31:04,678] epoch:1, time:0.3234996795654297, encode_num:0
+[INFO 2025-06-20 02:31:05,322] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 02:31:05,347] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 02:32:02,524] news scoring num: 72024
+[INFO 2025-06-20 02:32:02,524] DataLoader __iter__()
+[INFO 2025-06-20 02:32:02,525] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:./data/speedy_data/dev/, files:['./data/speedy_data/dev/ProtoBuf_0.tsv']
+[INFO 2025-06-20 02:32:02,598] shut down pool.
+[INFO 2025-06-20 02:32:02,599] local variable 'cnt' referenced before assignment
+[INFO 2025-06-20 03:14:58,301] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 03:14:58,302] -----------start train------------
+[INFO 2025-06-20 03:15:01,223] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 03:15:01,223] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 03:15:01,243] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 03:15:04,580] Load local ckpts
+[INFO 2025-06-20 03:15:05,881] This model has 1 poolers.
+[INFO 2025-06-20 03:15:10,378] Training...
+[INFO 2025-06-20 03:15:10,514] start async...
+[INFO 2025-06-20 03:15:10,581] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 03:15:10,705] epoch:1, time:0.3269939422607422, encode_num:0
+[INFO 2025-06-20 03:15:11,387] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 03:15:11,412] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 03:16:36,823] news scoring num: 72024
+[INFO 2025-06-20 03:16:36,823] DataLoader __iter__()
+[INFO 2025-06-20 03:16:36,824] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:./data/speedy_data/dev/, files:['./data/speedy_data/dev/ProtoBuf_0.tsv']
+[INFO 2025-06-20 03:16:36,897] shut down pool.
+[INFO 2025-06-20 03:16:36,899] local variable 'cnt' referenced before assignment
+[INFO 2025-06-20 03:30:14,566] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 03:30:14,566] -----------start train------------
+[INFO 2025-06-20 03:30:17,474] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 03:30:17,474] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 03:30:17,495] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 03:30:20,925] Load local ckpts
+[INFO 2025-06-20 03:30:22,199] This model has 1 poolers.
+[INFO 2025-06-20 03:30:26,701] Training...
+[INFO 2025-06-20 03:30:26,839] start async...
+[INFO 2025-06-20 03:30:26,906] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 03:30:27,031] epoch:1, time:0.3302421569824219, encode_num:0
+[INFO 2025-06-20 03:30:27,767] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 03:30:27,792] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 03:32:24,766] news scoring num: 72024
+[INFO 2025-06-20 03:32:24,766] DataLoader __iter__()
+[INFO 2025-06-20 03:32:24,767] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:./data/speedy_data/dev/, files:['./data/speedy_data/dev/ProtoBuf_0.tsv', './data/speedy_data/dev/ProtoBuf_0_org.tsv']
+[INFO 2025-06-20 03:32:24,840] shut down pool.
+[INFO 2025-06-20 03:32:24,898] local variable 'cnt' referenced before assignment
+[INFO 2025-06-20 03:40:51,594] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 03:40:51,595] -----------start train------------
+[INFO 2025-06-20 03:40:54,546] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 03:40:54,546] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 03:40:54,567] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 03:40:57,858] Load local ckpts
+[INFO 2025-06-20 03:40:58,778] This model has 1 poolers.
+[INFO 2025-06-20 03:41:00,091] Training...
+[INFO 2025-06-20 03:41:00,224] start async...
+[INFO 2025-06-20 03:41:00,291] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 03:41:00,416] epoch:1, time:0.32520127296447754, encode_num:0
+[INFO 2025-06-20 03:41:01,082] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 03:41:01,111] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 03:41:58,280] news scoring num: 72024
+[INFO 2025-06-20 03:41:58,283] Expected binary or unicode string, got ['./data/speedy_data/dev/']
+[INFO 2025-06-20 03:45:19,360] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 03:45:19,361] -----------start train------------
+[INFO 2025-06-20 03:45:22,262] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 03:45:22,262] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 03:45:22,282] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 03:45:25,594] Load local ckpts
+[INFO 2025-06-20 03:45:26,489] This model has 1 poolers.
+[INFO 2025-06-20 03:45:27,786] Training...
+[INFO 2025-06-20 03:45:28,009] start async...
+[INFO 2025-06-20 03:45:28,073] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 03:45:28,198] epoch:1, time:0.41251158714294434, encode_num:0
+[INFO 2025-06-20 03:45:28,967] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 03:45:28,994] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 03:46:26,035] news scoring num: 72024
+[INFO 2025-06-20 03:46:26,036] Expected binary or unicode string, got ['./data/speedy_data/dev/']
+[INFO 2025-06-20 03:49:28,558] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 03:49:28,559] -----------start train------------
+[INFO 2025-06-20 03:49:31,474] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 03:49:31,474] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 03:49:31,495] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 03:49:34,847] Load local ckpts
+[INFO 2025-06-20 03:49:35,755] This model has 1 poolers.
+[INFO 2025-06-20 03:49:37,053] Training...
+[INFO 2025-06-20 03:49:37,190] start async...
+[INFO 2025-06-20 03:49:37,253] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 03:49:37,378] epoch:1, time:0.324399471282959, encode_num:0
+[INFO 2025-06-20 03:49:38,193] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 03:49:38,218] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 03:50:35,339] news scoring num: 72024
+[INFO 2025-06-20 03:50:35,340] DataLoader __iter__()
+[INFO 2025-06-20 03:50:35,341] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:./data/speedy_data/dev/, files:['./data/speedy_data/dev/ProtoBuf_0.tsv', './data/speedy_data/dev/ProtoBuf_0_fix.tsv']
+[INFO 2025-06-20 03:50:35,416] shut down pool.
+[INFO 2025-06-20 03:50:35,418] local variable 'cnt' referenced before assignment
+[INFO 2025-06-20 04:05:37,615] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 04:05:37,615] -----------start train------------
+[INFO 2025-06-20 04:05:40,523] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 04:05:40,523] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 04:05:40,544] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 04:05:43,950] Load local ckpts
+[INFO 2025-06-20 04:05:44,865] This model has 1 poolers.
+[INFO 2025-06-20 04:05:46,189] Training...
+[INFO 2025-06-20 04:05:46,323] start async...
+[INFO 2025-06-20 04:05:46,387] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 04:05:46,513] epoch:1, time:0.323833703994751, encode_num:0
+[INFO 2025-06-20 04:05:47,325] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 04:05:47,351] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 04:06:44,568] news scoring num: 72024
+[INFO 2025-06-20 04:06:44,571] DataLoader __iter__()
+[INFO 2025-06-20 04:06:44,572] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:/, files:[]
+[ERROR 2025-06-20 04:06:44,576] Producer thread crashed: Expected 'tf.Tensor(False, shape=(), dtype=bool)' to be true. Summarized data: b'No files matched pattern: '
+[INFO 2025-06-20 04:14:37,878] 
+[INFO 2025-06-20 04:19:48,766] Namespace(attention_dims=20, batch_size=42, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 04:19:48,766] -----------start train------------
+[INFO 2025-06-20 04:19:51,708] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 04:19:51,708] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 04:19:51,729] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 04:19:55,113] Load local ckpts
+[INFO 2025-06-20 04:19:56,001] This model has 1 poolers.
+[INFO 2025-06-20 04:19:57,281] Training...
+[INFO 2025-06-20 04:19:57,412] start async...
+[INFO 2025-06-20 04:19:57,477] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 04:19:57,603] epoch:1, time:0.32153749465942383, encode_num:0
+[INFO 2025-06-20 04:19:58,651] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 04:19:58,676] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 04:20:55,773] news scoring num: 72024
+[INFO 2025-06-20 04:20:55,773] DataLoader __iter__()
+[INFO 2025-06-20 04:20:55,774] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:/, files:[]
+[ERROR 2025-06-20 04:20:55,777] Producer thread crashed: Expected 'tf.Tensor(False, shape=(), dtype=bool)' to be true. Summarized data: b'No files matched pattern: '
+[INFO 2025-06-20 04:24:32,399] 
+[INFO 2025-06-20 04:25:45,802] Namespace(attention_dims=20, batch_size=24, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 04:25:45,802] -----------start train------------
+[INFO 2025-06-20 04:25:48,734] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 04:25:48,735] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 04:25:48,755] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 04:25:52,026] Load local ckpts
+[INFO 2025-06-20 04:25:52,926] This model has 1 poolers.
+[INFO 2025-06-20 04:25:54,217] Training...
+[INFO 2025-06-20 04:25:54,346] start async...
+[INFO 2025-06-20 04:25:54,413] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 04:25:54,539] epoch:1, time:0.32120251655578613, encode_num:0
+[INFO 2025-06-20 04:25:55,208] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 04:25:55,238] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 04:26:52,324] news scoring num: 72024
+[INFO 2025-06-20 04:26:52,324] DataLoader __iter__()
+[INFO 2025-06-20 04:26:52,325] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:/, files:[]
+[ERROR 2025-06-20 04:26:52,328] Producer thread crashed: Expected 'tf.Tensor(False, shape=(), dtype=bool)' to be true. Summarized data: b'No files matched pattern: '
+[INFO 2025-06-20 04:28:45,456] 
+[INFO 2025-06-20 04:28:51,083] Namespace(attention_dims=20, batch_size=24, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 04:28:51,083] -----------start train------------
+[INFO 2025-06-20 04:28:53,981] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 04:28:53,981] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 04:28:54,002] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 04:28:57,357] Load local ckpts
+[INFO 2025-06-20 04:28:58,262] This model has 1 poolers.
+[INFO 2025-06-20 04:28:59,624] Training...
+[INFO 2025-06-20 04:28:59,851] start async...
+[INFO 2025-06-20 04:28:59,918] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 04:29:00,045] epoch:1, time:0.4210214614868164, encode_num:0
+[INFO 2025-06-20 04:29:00,725] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 04:29:00,750] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 04:29:58,089] news scoring num: 72024
+[INFO 2025-06-20 04:29:58,089] DataLoader __iter__()
+[INFO 2025-06-20 04:29:58,090] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:/, files:[]
+[ERROR 2025-06-20 04:29:58,093] Producer thread crashed: Expected 'tf.Tensor(False, shape=(), dtype=bool)' to be true. Summarized data: b'No files matched pattern: '
+[INFO 2025-06-20 04:35:14,891] 
+[INFO 2025-06-20 04:35:19,401] Namespace(attention_dims=20, batch_size=24, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 04:35:19,401] -----------start train------------
+[INFO 2025-06-20 04:35:22,438] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 04:35:22,438] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 04:35:22,459] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 04:35:25,970] Load local ckpts
+[INFO 2025-06-20 04:35:26,913] This model has 1 poolers.
+[INFO 2025-06-20 04:35:28,278] Training...
+[INFO 2025-06-20 04:35:28,415] start async...
+[INFO 2025-06-20 04:35:28,483] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 04:35:28,609] epoch:1, time:0.33066582679748535, encode_num:0
+[INFO 2025-06-20 04:35:29,308] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 04:35:29,334] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 04:36:26,462] news scoring num: 72024
+[INFO 2025-06-20 04:36:26,462] DataLoader __iter__()
+[WARNING 2025-06-20 04:36:26,463] no file in d !
+[ERROR 2025-06-20 04:36:26,464] Producer thread crashed: 'NoneType' object is not iterable
+[INFO 2025-06-20 04:39:43,622] 
+[INFO 2025-06-20 04:39:49,876] Namespace(attention_dims=20, batch_size=24, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 04:39:49,877] -----------start train------------
+[INFO 2025-06-20 04:39:52,794] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 04:39:52,794] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 04:39:52,815] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 04:39:56,235] Load local ckpts
+[INFO 2025-06-20 04:39:57,115] This model has 1 poolers.
+[INFO 2025-06-20 04:39:58,413] Training...
+[INFO 2025-06-20 04:39:58,546] start async...
+[INFO 2025-06-20 04:39:58,612] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 04:39:58,738] epoch:1, time:0.32446765899658203, encode_num:0
+[INFO 2025-06-20 04:39:59,435] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 04:39:59,461] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 04:40:56,592] news scoring num: 72024
+[INFO 2025-06-20 04:40:56,592] DataLoader __iter__()
+[WARNING 2025-06-20 04:40:56,594] no file in d !
+[ERROR 2025-06-20 04:40:56,594] Producer thread crashed: 'NoneType' object is not iterable
+[INFO 2025-06-20 04:51:08,580] 
+[INFO 2025-06-20 04:51:13,991] Namespace(attention_dims=20, batch_size=24, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 04:51:13,991] -----------start train------------
+[INFO 2025-06-20 04:51:16,906] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 04:51:16,906] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 04:51:16,928] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 04:51:20,401] Load local ckpts
+[INFO 2025-06-20 04:51:21,313] This model has 1 poolers.
+[INFO 2025-06-20 04:51:22,644] Training...
+[INFO 2025-06-20 04:51:22,869] start async...
+[INFO 2025-06-20 04:51:22,934] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 04:51:23,061] epoch:1, time:0.4170258045196533, encode_num:0
+[INFO 2025-06-20 04:51:23,709] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 04:51:23,737] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 04:52:21,007] news scoring num: 72024
+[INFO 2025-06-20 04:52:21,007] DataLoader __iter__()
+[INFO 2025-06-20 04:52:21,008] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:/, files:[]
+[ERROR 2025-06-20 04:52:21,011] Producer thread crashed: Expected 'tf.Tensor(False, shape=(), dtype=bool)' to be true. Summarized data: b'No files matched pattern: '
+[INFO 2025-06-20 04:52:35,025] 
+[INFO 2025-06-20 04:52:39,988] Namespace(attention_dims=20, batch_size=24, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 04:52:39,988] -----------start train------------
+[INFO 2025-06-20 04:52:42,921] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 04:52:42,922] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 04:52:42,943] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 04:52:45,799] 
+[INFO 2025-06-20 04:52:58,247] Namespace(attention_dims=20, batch_size=24, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 04:52:58,247] -----------start train------------
+[INFO 2025-06-20 04:53:01,210] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 04:53:01,210] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 04:53:01,231] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 04:53:04,620] Load local ckpts
+[INFO 2025-06-20 04:53:05,514] This model has 1 poolers.
+[INFO 2025-06-20 04:53:06,812] Training...
+[INFO 2025-06-20 04:53:06,937] start async...
+[INFO 2025-06-20 04:53:07,000] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 04:53:07,128] epoch:1, time:0.3157484531402588, encode_num:0
+[INFO 2025-06-20 04:53:07,795] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 04:53:07,822] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 04:54:05,225] news scoring num: 72024
+[INFO 2025-06-20 04:54:05,225] DataLoader __iter__()
+[WARNING 2025-06-20 04:54:05,227] no file in d !
+[WARNING 2025-06-20 04:54:05,227] no file in a !
+[WARNING 2025-06-20 04:54:05,227] no file in t !
+[WARNING 2025-06-20 04:54:05,227] no file in a !
+[WARNING 2025-06-20 04:54:05,227] no file in s !
+[WARNING 2025-06-20 04:54:05,228] no file in p !
+[WARNING 2025-06-20 04:54:05,228] no file in e !
+[WARNING 2025-06-20 04:54:05,228] no file in e !
+[WARNING 2025-06-20 04:54:05,228] no file in d !
+[WARNING 2025-06-20 04:54:05,228] no file in y !
+[WARNING 2025-06-20 04:54:05,228] no file in _ !
+[WARNING 2025-06-20 04:54:05,228] no file in d !
+[WARNING 2025-06-20 04:54:05,228] no file in a !
+[WARNING 2025-06-20 04:54:05,228] no file in t !
+[WARNING 2025-06-20 04:54:05,228] no file in a !
+[WARNING 2025-06-20 04:54:05,228] no file in d !
+[WARNING 2025-06-20 04:54:05,228] no file in e !
+[WARNING 2025-06-20 04:54:05,228] no file in v !
+[INFO 2025-06-20 04:54:05,229] worker_rank:0, world_size:1, shuffle:True, seed:0, directory:/, files:[]
+[ERROR 2025-06-20 04:54:05,231] Producer thread crashed: Expected 'tf.Tensor(False, shape=(), dtype=bool)' to be true. Summarized data: b'No files matched pattern: '
+[INFO 2025-06-20 05:00:19,568] 
+[INFO 2025-06-20 05:04:51,338] Namespace(attention_dims=20, batch_size=24, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 05:04:51,338] -----------start train------------
+[INFO 2025-06-20 05:04:54,213] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 05:04:54,213] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 05:04:54,233] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 05:04:57,604] Load local ckpts
+[INFO 2025-06-20 05:04:58,499] This model has 1 poolers.
+[INFO 2025-06-20 05:04:59,836] Training...
+[INFO 2025-06-20 05:05:00,058] start async...
+[INFO 2025-06-20 05:05:00,124] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 05:05:00,214] '_PrefetchDataset' object has no attribute 'make_one_shot_iterator'
+[INFO 2025-06-20 05:05:43,179] 
+[INFO 2025-06-20 05:05:48,821] Namespace(attention_dims=20, batch_size=24, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 05:05:48,822] -----------start train------------
+[INFO 2025-06-20 05:05:51,726] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 05:05:51,726] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 05:05:51,747] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 05:05:55,152] Load local ckpts
+[INFO 2025-06-20 05:05:56,051] This model has 1 poolers.
+[INFO 2025-06-20 05:05:57,352] Training...
+[INFO 2025-06-20 05:05:57,478] start async...
+[INFO 2025-06-20 05:05:57,551] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 05:05:57,644] '_PrefetchDataset' object has no attribute 'make_one_shot_iterator'
+[INFO 2025-06-20 05:08:00,567] 
+[INFO 2025-06-20 05:08:05,516] Namespace(attention_dims=20, batch_size=24, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 05:08:05,517] -----------start train------------
+[INFO 2025-06-20 05:08:08,418] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 05:08:08,419] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 05:08:08,439] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 05:08:11,829] Load local ckpts
+[INFO 2025-06-20 05:08:12,716] This model has 1 poolers.
+[INFO 2025-06-20 05:08:14,011] Training...
+[INFO 2025-06-20 05:08:14,142] start async...
+[INFO 2025-06-20 05:08:14,206] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 05:08:14,295] '_PrefetchDataset' object has no attribute 'make_one_shot_iterator'
+[INFO 2025-06-20 05:11:15,210] 
+[INFO 2025-06-20 05:11:22,342] Namespace(attention_dims=20, batch_size=24, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 05:11:22,342] -----------start train------------
+[INFO 2025-06-20 05:11:25,265] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 05:11:25,266] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 05:11:25,286] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 05:11:28,709] Load local ckpts
+[INFO 2025-06-20 05:11:29,620] This model has 1 poolers.
+[INFO 2025-06-20 05:11:30,922] Training...
+[INFO 2025-06-20 05:11:31,061] start async...
+[INFO 2025-06-20 05:11:31,131] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 05:11:31,223] '_PrefetchDataset' object has no attribute 'make_one_shot_iterator'
+[INFO 2025-06-20 05:13:09,334] 
+[INFO 2025-06-20 05:13:16,061] Namespace(attention_dims=20, batch_size=24, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 05:13:16,061] -----------start train------------
+[INFO 2025-06-20 05:13:19,120] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 05:13:19,120] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 05:13:19,141] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 05:13:22,694] Load local ckpts
+[INFO 2025-06-20 05:13:23,622] This model has 1 poolers.
+[INFO 2025-06-20 05:13:24,930] Training...
+[INFO 2025-06-20 05:13:25,071] start async...
+[INFO 2025-06-20 05:13:25,139] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 05:13:25,266] epoch:1, time:0.33596253395080566, encode_num:0
+[INFO 2025-06-20 05:13:26,145] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 05:13:26,178] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 05:14:23,405] news scoring num: 72024
+[INFO 2025-06-20 05:14:23,405] DataLoader __iter__()
+[WARNING 2025-06-20 05:14:23,406] no file in d !
+[ERROR 2025-06-20 05:14:23,407] Producer thread crashed: 'NoneType' object is not iterable
+[INFO 2025-06-20 05:19:25,195] 
+[INFO 2025-06-20 05:19:29,950] Namespace(attention_dims=20, batch_size=24, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 05:19:29,950] -----------start train------------
+[INFO 2025-06-20 05:19:32,876] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 05:19:32,876] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 05:19:32,897] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 05:19:36,220] Load local ckpts
+[INFO 2025-06-20 05:19:37,126] This model has 1 poolers.
+[INFO 2025-06-20 05:19:38,427] Training...
+[INFO 2025-06-20 05:19:38,562] start async...
+[INFO 2025-06-20 05:19:38,627] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 05:19:38,753] epoch:1, time:0.32599902153015137, encode_num:0
+[INFO 2025-06-20 05:19:39,424] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 05:19:39,453] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 05:20:36,633] news scoring num: 72024
+[INFO 2025-06-20 05:20:36,634] DataLoader __iter__()
+[WARNING 2025-06-20 05:20:36,635] no file in d !
+[ERROR 2025-06-20 05:20:36,636] Producer thread crashed: 'NoneType' object is not iterable
+[INFO 2025-06-20 06:16:24,460] 
+[INFO 2025-06-20 06:16:31,137] Namespace(attention_dims=20, batch_size=24, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 06:16:31,137] -----------start train------------
+[INFO 2025-06-20 06:16:34,124] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 06:16:34,125] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 06:16:34,146] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 06:16:37,567] Load local ckpts
+[INFO 2025-06-20 06:16:38,454] This model has 1 poolers.
+[INFO 2025-06-20 06:16:39,760] Training...
+[INFO 2025-06-20 06:16:39,888] start async...
+[INFO 2025-06-20 06:16:39,954] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 06:16:40,077] epoch:1, time:0.31710052490234375, encode_num:0
+[INFO 2025-06-20 06:16:40,804] Model saved to ./saved_models/speedyrec_mind-epoch-1.pt
+[INFO 2025-06-20 06:16:40,830] Load cache from ./data/speedy_data//dev/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 06:17:38,110] news scoring num: 72024
+[INFO 2025-06-20 06:17:38,110] DataLoader __iter__()
+[WARNING 2025-06-20 06:17:38,111] no file in d !
+[ERROR 2025-06-20 06:17:38,112] Producer thread crashed: 'NoneType' object is not iterable
+[INFO 2025-06-20 06:30:44,911] 
+[INFO 2025-06-20 07:15:06,806] Namespace(attention_dims=20, batch_size=24, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 07:15:06,806] -----------start train------------
+[INFO 2025-06-20 07:15:09,710] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 07:15:09,710] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 07:15:09,711] 'Namespace' object has no attribute 'pretreained_model'
+[INFO 2025-06-20 07:16:18,578] Namespace(attention_dims=20, batch_size=24, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 07:16:18,579] -----------start train------------
+[INFO 2025-06-20 07:16:21,471] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 07:16:21,472] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 07:16:21,473] 'Namespace' object has no attribute 'pretreained_model'
+[INFO 2025-06-20 07:16:36,820] Namespace(attention_dims=20, batch_size=24, beta_for_cache=0.002, config_name='unilm2-base-uncased-config.json', demo_dim=64, drop_rate=0.2, enable_gpu=True, enable_prefetch=True, enable_prefetch_stream=True, enable_shuffle=True, epochs=6, filename_pat='ProtoBuf_*.tsv', freeze_pretrain_news_encoder=False, load_ckpt_name=None, log_steps=200, lr=0.0001, max_hit_ratio=1, max_step_in_cache=2, max_steps_per_epoch=1000000, model_dir='./saved_models/', model_name_or_path='unilm2-base-uncased.bin', news_attributes=['title', 'abstract'], news_dim=256, news_query_vector_dim=200, npratio=4, num_attention_heads=20, num_hidden_layers=8, num_words_abstract=50, num_words_body=100, num_words_title=32, num_workers=2, pretrain_lr=8e-06, pretrained_model='unilm', pretrained_model_path='/home/v-yitaochen/feed/feed_original/fastformer-for-rec-UofG/models/unilm', root_data_dir='./data/speedy_data/', save_steps=100000, savename='speedyrec_mind', schedule_step=240000, test_steps=1000000, title_share_encoder=False, tokenizer_name='unilm2-base-uncased-vocab.txt', use_moe=False, use_pretrain_news_encoder=False, user_log_length=100, user_log_mask=True, user_query_vector_dim=32, warmup=True, warmup_step=1000, word_embedding_dim=300, world_size=1)
+[INFO 2025-06-20 07:16:36,820] -----------start train------------
+[INFO 2025-06-20 07:16:39,715] Added key: store_based_barrier_key:1 to store for rank: 0
+[INFO 2025-06-20 07:16:39,715] Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+[INFO 2025-06-20 07:16:39,736] Load cache from ./data/speedy_data//train/unilm_title+abstract_preprocessed_docs.pkl
+[INFO 2025-06-20 07:16:43,123] Load local ckpts
+[INFO 2025-06-20 07:16:44,023] This model has 1 poolers.
+[INFO 2025-06-20 07:16:45,320] Training...
+[INFO 2025-06-20 07:16:45,451] start async...
+[INFO 2025-06-20 07:16:45,515] visible_devices:[PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')]
+[INFO 2025-06-20 07:16:45,604] '_PrefetchDataset' object has no attribute 'make_one_shot_iterator'
+[INFO 2025-06-20 08:27:58,747] 

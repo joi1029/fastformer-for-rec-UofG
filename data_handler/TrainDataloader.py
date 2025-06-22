@@ -319,4 +319,3 @@ class DataLoaderTrainForSpeedyRec(IterableDataset):
             return news + [0] * (ratio - len(news))
         else:
             return random.sample(news, ratio)
-

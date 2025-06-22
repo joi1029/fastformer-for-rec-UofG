@@ -425,6 +425,10 @@ class TuringNLRv3Model(TuringNLRv3PreTrainedModel):
         else:
             self.pooler = None
 
+        # After loading the config
+        if not hasattr(config, "rel_pos_bins"):
+            config.rel_pos_bins = 0  # Or another default
+
         if self.config.rel_pos_bins > 0:
             self.rel_pos_bias = nn.Linear(self.config.rel_pos_bins, config.num_attention_heads, bias=False)
         else:
